@@ -1,0 +1,6 @@
+@EventDrivenCheckout_HostAddress = http://localhost:5001
+
+GET {{EventDrivenCheckout_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
