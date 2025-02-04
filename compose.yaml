@@ -1,0 +1,24 @@
+﻿services:
+  phasedcommit:
+    image: phasedcommit
+    build:
+      context: .
+      dockerfile: PhasedCommit/Dockerfile
+
+  coordinator:
+    image: coordinator
+    build:
+      context: .
+      dockerfile: Coordinator/Dockerfile
+
+  service1:
+    image: service1
+    build:
+      context: .
+      dockerfile: Service1/Dockerfile
+
+  service2:
+    image: service2
+    build:
+      context: .
+      dockerfile: Service2/Dockerfile
