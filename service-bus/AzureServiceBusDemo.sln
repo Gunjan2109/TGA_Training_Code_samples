@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService", "OrderService\OrderService.csproj", "{9C5A0960-AB8C-4DFE-8093-1B5B11199720}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryService", "DeliveryService\DeliveryService.csproj", "{A5B2499E-3986-4883-90AE-C201451E37BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLQReader", "DLQReader\DLQReader.csproj", "{CA6BF239-6B9C-424C-B5AA-8EC3514D15CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C5A0960-AB8C-4DFE-8093-1B5B11199720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C5A0960-AB8C-4DFE-8093-1B5B11199720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C5A0960-AB8C-4DFE-8093-1B5B11199720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C5A0960-AB8C-4DFE-8093-1B5B11199720}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5B2499E-3986-4883-90AE-C201451E37BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5B2499E-3986-4883-90AE-C201451E37BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5B2499E-3986-4883-90AE-C201451E37BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5B2499E-3986-4883-90AE-C201451E37BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA6BF239-6B9C-424C-B5AA-8EC3514D15CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA6BF239-6B9C-424C-B5AA-8EC3514D15CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA6BF239-6B9C-424C-B5AA-8EC3514D15CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA6BF239-6B9C-424C-B5AA-8EC3514D15CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
