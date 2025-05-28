@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "jlhME671JM0=",
+  "success": true,
+  "projectFilePath": "D:\\Harsh Data\\Training PPT\\TGA_DotNet\\Code\\cicd\\MockStore\\MockStore\\MockStore.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\devha\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.5\\microsoft.aspnetcore.openapi.9.0.5.nupkg.sha512",
+    "C:\\Users\\devha\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
+    "C:\\Users\\devha\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.22.1-preview.1\\microsoft.visualstudio.azure.containers.tools.targets.1.22.1-preview.1.nupkg.sha512"
+  ],
+  "logs": []
+}

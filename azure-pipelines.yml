@@ -1,0 +1,67 @@
+trigger:
+- main
+
+resources:
+- repo: self
+
+variables:
+  acr: tgashared.azurecr.io
+  tag: '$(Build.BuildId)'
+  storeImageName: 'store-service'
+  authImageName: 'authService' # <- your service variable repository name
+  AZP_AGENT_CLEANUP_PSMODULES_IN_POWERSHELL: true
+
+stages:
+- stage: StoreService
+  displayName: Store Service - Build & Deploy
+  jobs:
+  - job: Build
+    displayName: Build
+    pool: Default
+    steps:
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+        command: build
+        repository: '$(acr)/$(storeImageName)'
+        buildContext: './MockStore/.'
+        dockerfile: '$(Build.SourcesDirectory)/MockStore/MockStore/Dockerfile'
+        tags: |
+          $(tag)
+
+    - task: PowerShell@2
+      displayName: Push to ACR with Tag
+      inputs:
+        targetType: 'inline'
+        script: |
+          docker push "$(acr)/$(storeImageName):$(tag)"
+
+    - task: PowerShell@2
+      displayName: Push to ACR with Latest
+      inputs:
+        targetType: 'inline'
+        script: |
+          docker tag '$(acr)/$(storeImageName):$(tag)' '$(acr)/$(storeImageName)'
+          docker push '$(acr)/$(storeImageName):$(tag)'
+          docker push '$(acr)/$(storeImageName)'
+
+  - deployment: DeployToStage
+    displayName: Deploy to Kubernetes - Stage
+    dependsOn: Build
+    pool: Default
+    environment: 
+      name: Stage
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: PowerShell@2
+            displayName: Helm Deploy to Stage
+            inputs:
+              targetType: 'inline'
+              script: |
+                $env:KUBECONFIG = "E:\azure-agent\config"
+                kubectl --kubeconfig "E:\azure-agent\config" config current-context
+                kubectl --kubeconfig "E:\azure-agent\config" get nodes
+
+                helm upgrade --install mock-store ./helm/ecom-chart --namespace stage --create-namespace -f ./MockStore/store-values.yaml
